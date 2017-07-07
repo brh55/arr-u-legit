@@ -2,13 +2,11 @@
 
 > 🤔 Strict compare an unsure array against a set of valid values to check if it's legit
 
-
 ## Install
 
 ```
 $ npm install --save arr-u-legit
 ```
-
 
 ## Usage
 
@@ -16,14 +14,16 @@ $ npm install --save arr-u-legit
 const legit = require('arr-u-legit');
 
 legit(['apple', 'banana'], ['apple', 'banana', 'orange']); // => true
-
 legit(['apple', 'banana', 'pineapple'], ['apple', 'banana', 'orange']); // => false
+
+// Show Invalid Items
+legit(['apple', 'banana', 'chicken'], ['apple', 'banana', 'orange'], true); // => ['chicken']
 ```
 
 
 ## API
 
-### legit(unsureArray, validOptions)
+### legit(unsureArray, validOptions [, showItems])
 
 #### unsureArray
 
@@ -36,6 +36,13 @@ The unsure array in question.
 Type: `array`<br>
 
 A set of valid options to compare against.
+
+#### showItems
+
+Type: `bool`<br>
+Default: `false`
+
+A boolean flag to return the invalid items instead of a boolean result
 
 ## License
 

@@ -1,6 +1,6 @@
 {
 	"name": "arr-u-legit",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Strict compare an unsure array against a set of valid values to check if it's legit",
 	"license": "MIT",
 	"repository": "brh55/arr-u-legit",

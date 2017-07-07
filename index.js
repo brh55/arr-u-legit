@@ -1,11 +1,18 @@
 'use strict';
 const assert = require('assert');
 
-module.exports = (unsureArray, validArray) => {
+module.exports = (unsureArray, validArray, showItems) => {
 	assert(Array.isArray(unsureArray) && Array.isArray(validArray), 'Expected array as inputs');
+	showItems = showItems || false;
 
 	// Returns item if not valid
-	const checkValid = item => validArray.indexOf(item) !== -1;
-	// returns false if array contains an invalid value
-	return unsureArray.reduce((acc, item) => (acc === false) ? false : checkValid(item), true);
+	const isValid = item => validArray.indexOf(item) !== -1;
+	// Returns false if array contains an invalid value
+	const invalidKeys = unsureArray.reduce((acc, item) => (isValid(item)) ? acc : acc.concat([item]), []);
+
+	if (showItems) {
+		return invalidKeys;
+	}
+
+	return (invalidKeys.length === 0) ? true : false;
 };
